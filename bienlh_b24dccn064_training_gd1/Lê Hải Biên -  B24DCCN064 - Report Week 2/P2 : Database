@@ -1,1 +1,25 @@
+#  Phần 2: Database (Thiết kế lược đồ E-R)
+## 1.Kiến thức : 
+Khái niệm : - Entity là một đối tượng hoặc khái niệm trong thế giới thực mà ta muốn lưu trữ thông tin trong cơ sở dữ liệu. Gồm strong Entity và Weak Entyty 
+      Ví dụ : Hệ thống quản lý bảo hiểm y tế 
+            - Attribute là đặc điểm hoặc thông tin mô tả cho thực thể hoặc mối quan hệ.
+      Vd: Thuộc tính 1 người bao gôm họ tên, tuổi,..
+            -Relationship là mối liên kết giữa hai hoặc nhiều thực thể trong cơ sở dữ liệu.
+      VD : Mối quan hệ tính năm giữa năm sinh và tuổi
+            -Cardinality mô tả số lượng thực thể có thể tham gia vào một mối quan hệ.
+## 2. Relationships
+ Ví dụ : Quan hệ người mua - Giao dịch - trái cây 
+- Quan hệ 1 - N ( 1 người có thể mua được nhiều trái cây)
+- Quan hệ 1 -1 ( 1 người mua thì sẽ có 1 giao dịch )
+- quan hệ N - N ( Nhiều người mua thì sẽ có nhiều trái cây để bán ) 
+## 3. Sơ đồ E -R
++------------+          +-------------+          +-------------+
+|  NGUOIMUA  |          |  GIAODICH   |          |   TRAICAY   |
+|------------|          |-------------|          |-------------|
+| MaNM (PK)  |<-------->| MaNM (FK)   |<-------->| MaTC (PK)   |
+| HoTen      |          | MaTC (FK)   |          | TenTC       |
+| SDT        |          | SoLuong     |          | GiaBan      |
++------------+          | NgayMua     |          +-------------+
+                        +-------------+
 
+ 
