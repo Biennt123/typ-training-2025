@@ -21,5 +21,40 @@ Khái niệm : - Entity là một đối tượng hoặc khái niệm trong th�
 | SDT        |          | SoLuong     |          | GiaBan      |
 +------------+          | NgayMua     |          +-------------+
                         +-------------+
+Giải thích 
+ 1. Các thực thể (Entities)
+a. NGUOIMUA:
+Đại diện cho người khách hàng trong hệ thống.
+Gồm cac thuộc tính:
++,MaNM (Primary Key) – Mã người mua (định danh duy nhất từng khách hàng)
++,HoTen – Họ tên người mua
++,SDT – Số điện thoại người mua
+ => Mỗi người mua có thể thực hiện nhiều giao dịch (mối quan hệ 1–N với GIAODICH).
 
- 
+b. TRAICAY
+Đại diện cho loại trái cây được bán.
+Gồm các thuộc tính:
++,MaTC (Primary Key) – Mã trái cây
++,TenTC – Tên trái cây (ví dụ: cam, xoài, táo, v.v.)
++,GiaBan – Giá bán của mỗi loại trái cây
+ =>  Một loại trái cây có thể xuất hiện trong nhiều giao dịch (mối quan hệ 1–N với GIAODICH).
+
+c. GIAODICH
+Là thực thể trung gian (liên kết) giữa NGUOIMUA và TRAICAY.
+Gồm các thuộc tính:
++,MaNM (Foreign Key) – Mã người mua (tham chiếu tới bảng NGUOIMUA)
++,MaTC (Foreign Key) – Mã trái cây (tham chiếu tới bảng TRAICAY)
++,SoLuong – Số lượng trái cây được mua
++,NgayMua – Ngày thực hiện giao dịch
+
+=> Mỗi giao dịch ghi lại việc người mua nào mua loại trái cây nào, với số lượng bao nhiêu, vào ngày nào.
+
+🔗 2. Mối quan hệ giữa các thực thể
+Mối quan hệ	Loại quan hệ	Giải thích
+NGUOIMUA — GIAODICH	1:N	Một người mua có thể có nhiều giao dịch (mua nhiều lần).
+TRAICAY — GIAODICH	1:N	Một loại trái cây có thể được mua trong nhiều giao dịch.
+
+Tổng thể, đây là mối quan hệ N–N giữa NGUOIMUA và TRAICAY, được biểu diễn thông qua bảng trung gian GIAODICH.
+
+=> Giao dịch là loại giao dịch theo ngày 
+## Các khái niệm về Entity, Relationship đã được định nghĩa phía trên 
